@@ -8,7 +8,7 @@ pipeline {
     stage('Preparation') {
             steps {
                 script {
-                    echo Branch_name %GIT_BRANCH%
+                    echo  %GIT_BRANCH%
                    
                     }
                 }

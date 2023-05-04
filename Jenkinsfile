@@ -1,20 +1,18 @@
 pipeline {
     agent any
-   
-
 
  
 
-    stage('Preparation') {
+    stages {
+        stage('test') {
             steps {
                 script {
-                    echo  %GIT_BRANCH%
-                   
+                   echo %GIT_BRANCH%
                     }
                 }
             }
         }
 
        
-  
+  }
   

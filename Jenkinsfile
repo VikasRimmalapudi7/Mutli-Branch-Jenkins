@@ -7,7 +7,8 @@ pipeline {
         stage('test') {
             steps {
                 script {
-                   echo  ' %GIT_BRANCH% '
+                    @echo off
+                   echo   %GIT_BRANCH% 
                        
                     }
                 }

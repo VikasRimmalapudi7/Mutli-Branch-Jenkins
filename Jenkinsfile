@@ -1,13 +1,15 @@
 pipeline {
     agent any
+   
+
 
  
 
-    stages {
-        stage('test') {
+    stage('Preparation') {
             steps {
                 script {
-                   echo "this is master branch"
+                    echo Branch_name %GIT_BRANCH%
+                   
                     }
                 }
             }

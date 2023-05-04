@@ -7,7 +7,7 @@ pipeline {
         stage('test') {
             steps {
                 script {
-                   echo "this is master branch"
+                   echo "this is testing branch"
                     }
                 }
             }

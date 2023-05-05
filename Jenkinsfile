@@ -40,10 +40,7 @@ pipeline {
                             echo "${c.password}"
                         }
                     }
-                    withCredentials([usernamePassword(credentialsId: credential_id, passwordVariable: 'PASSWORD', usernameVariable: 'SCHEMA')]) {
-                       echo "$credential_id"
-                       
-                    }
+                 
                 }
             }
         }

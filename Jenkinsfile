@@ -26,6 +26,7 @@ pipeline {
                 }
             }
         }
+    }
     
     stage("Execute command based on schema") {
     steps {

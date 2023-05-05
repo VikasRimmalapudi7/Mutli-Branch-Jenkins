@@ -37,6 +37,7 @@ pipeline {
                             credential_id = c.id
                             echo "${credential_id}"
                             echo "${c.username}"
+                            echo "${c.password}"
                         }
                     }
                     withCredentials([usernamePassword(credentialsId: credential_id, passwordVariable: 'PASSWORD', usernameVariable: 'SCHEMA')]) {

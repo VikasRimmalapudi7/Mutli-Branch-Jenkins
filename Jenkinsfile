@@ -39,7 +39,7 @@ pipeline {
                         }
                     }
                     withCredentials([usernamePassword(credentialsId: credential_id, passwordVariable: 'PASSWORD', usernameVariable: 'SCHEMA')]) {
-                        sh 'sqlplus \"$SCHEMA/$PASSWORD@DBNAME\" @/path/to/script.sql'
+                        bat 'sqlplus \"$SCHEMA/$PASSWORD@DBNAME\" @/path/to/script.sql'
                     }
                 }
             }

@@ -35,9 +35,9 @@ pipeline {
                     for (c in creds) {
                         if (c.username == schema) {
                             credential_id = c.id
-                            echo "${credential_id}"
-                            echo "${c.username}"
-                            echo "${c.password}"
+                            echo "credential id is ${credential_id}"
+                            echo "username is ${c.username}"
+                            echo "password is ${c.password}"
                         }
                     }
                  

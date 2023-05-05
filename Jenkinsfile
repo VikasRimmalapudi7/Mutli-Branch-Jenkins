@@ -10,6 +10,7 @@ pipeline {
                      
  
     }
+    
 
     stages {
         stage('test') {
@@ -26,4 +27,28 @@ pipeline {
             }
         }
     }
+    stage("Execute command based on schema") {
+    steps {
+        script {
+            def schema = "master"
+            def credential_id = ""
+            def creds = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
+                com.cloudbees.plugins.credentials.common.StandardUsernameCredentials.class,
+                Jenkins.instance,
+                null,
+                null
+            );
+            for (c in creds) {
+                if (c.username == schema) {
+                    credential_id = c.id
+                    echo "${credential_id}"
+                }
+            }
+                
+            withCredentials([usernamePassword(credentialsId: credential_id, passwordVariable: 'PASSWORD', usernameVariable: 'SCHEMA')]) {
+                sh 'sqlplus \"$SCHEMA/$PASSWORD@DBNAME\" @/path/to/script.sql'
+            }
+        }
+    }
+}
 }

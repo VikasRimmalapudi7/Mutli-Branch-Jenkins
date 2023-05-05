@@ -24,7 +24,7 @@ pipeline {
         stage("Execute command based on schema") {
             steps {
                 script {
-                    def schema = "master"
+                    def schema = "${env.Git_branch}"
                     def credential_id = ""
                     def creds = com.cloudbees.plugins.credentials.CredentialsProvider.lookupCredentials(
                         com.cloudbees.plugins.credentials.common.StandardUsernameCredentials.class,
@@ -36,6 +36,7 @@ pipeline {
                         if (c.username == schema) {
                             credential_id = c.id
                             echo "${credential_id}"
+                            echo "${c.username}"
                         }
                     }
                     withCredentials([usernamePassword(credentialsId: credential_id, passwordVariable: 'PASSWORD', usernameVariable: 'SCHEMA')]) {
